@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inconsolata:wght@500&family=Limelight&family=Lobster&family=Noto+Sans+JP&family=Roboto+Mono:ital,wght@1,200&family=ZCOOL+KuaiLe&display=swap');
+
 html,
 body {
   padding: 0;
@@ -13,4 +19,26 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.post::before {
+  content: '';
+  left: 20px;
+  position: absolute;
+  top: 0px;
+  display: block;
+  background-color: rgb(255, 255, 255);
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 150px 150px 150px 150px;
+  grid-template-areas: 
+    "a b c d"
+    "e f . g"
+    "h i j k"
+    "l m n o";
 }
