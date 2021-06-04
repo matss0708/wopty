@@ -50,7 +50,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="pb-16 w-full h-screen main">
+      <div className="pb-16 w-full h-5/6 main">
 
       {posts.map((post,index)=> {
         const left= (((Math.random() * (window.innerWidth))).toFixed()).toString()+'px'
