@@ -36,7 +36,7 @@ export default function Home() {
     console.log(data);
     setPosts(data);
   }, [count])
-
+console.log(position);
   const setCount =(data)=>{
     console.log(count);
     setcount(data)
@@ -56,8 +56,8 @@ export default function Home() {
         const left= (((Math.random() * (window.innerWidth))).toFixed()).toString()+'px'
         const top=((Math.random() * (window.innerHeight - ((Math.random()*100) + 50).toFixed())).toFixed()).toString()+'px'
         const width=((Math.random()*300) + 200).toFixed().toString() +'px'
-        return <div>
-                   <p  style={{gridArea:position[index]}} className={`bg-white text-black mt-${mt[Math.round(Math.random()*14)]} post transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random()*5)]} ${rotate[Math.round(Math.random()*17)]} text-${fontWeight[Math.round(Math.random()*5)]}`} key={post._id}>{post.post}</p>
+        return <div style={{gridArea:position[index]}} key={post._id}>
+                   <p className={`bg-white text-black mt-${mt[Math.round(Math.random()*14)]} post transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random()*5)]} ${rotate[Math.round(Math.random()*17)]} text-${fontWeight[Math.round(Math.random()*5)]}`}>{post.post}</p>
                 </div>
       })
 }
