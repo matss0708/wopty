@@ -31,7 +31,7 @@ export default function Home() {
       console.log(position);
 
     document.body.style.backgroundColor = color[background];
-    const res = await fetch(`http://localhost:3000/api/post`);
+    const res = await fetch(`/api/post`);
     const data = await res.json();
     console.log(data);
     setPosts(data);
@@ -56,7 +56,9 @@ export default function Home() {
         const left= (((Math.random() * (window.innerWidth))).toFixed()).toString()+'px'
         const top=((Math.random() * (window.innerHeight - ((Math.random()*100) + 50).toFixed())).toFixed()).toString()+'px'
         const width=((Math.random()*300) + 200).toFixed().toString() +'px'
-        return  <div  style={{gridArea:position[index]}} className={`bg-white text-black mt-${mt[Math.round(Math.random()*14)]} post transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random()*5)]} ${rotate[Math.round(Math.random()*17)]} text-${fontWeight[Math.round(Math.random()*5)]}`} key={post._id}>{post.post}</div>
+        return <div>
+                   <p  style={{gridArea:position[index]}} className={`bg-white text-black mt-${mt[Math.round(Math.random()*14)]} post transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random()*5)]} ${rotate[Math.round(Math.random()*17)]} text-${fontWeight[Math.round(Math.random()*5)]}`} key={post._id}>{post.post}</p>
+                </div>
       })
 }
       </div>
