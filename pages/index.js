@@ -38,8 +38,10 @@ export default function Home() {
         shuffleArray(data);
         console.log(data);
         setPosts(data);
-        const result = new Array(Math.ceil(data.length / 4)).fill().map((_) => data.splice(0, 4));
-        setChunked(result);
+        if (window.innerWidth <= 600) {
+            const result = new Array(Math.ceil(data.length / 4)).fill().map((_) => data.splice(0, 4));
+            setChunked(result);
+        }
 
         // Array.from({ length: Math.ceil(data.length / 4) }, (val, i) => {
         //     console.log(chunked);
@@ -49,8 +51,8 @@ export default function Home() {
     }, [count]);
 
     useEffect(() => {
-        console.log(chunked);
-    }, [chunked]);
+        console.log(posts);
+    }, [posts]);
     console.log(position);
 
     const setCount = (data) => {
@@ -75,10 +77,14 @@ export default function Home() {
                         {chunked.length &&
                             chunked.map((post, index) => {
                                 return (
-                                    <div key={post._id}>
+                                    <div key={index}>
                                         {post.length &&
                                             post.map((onePost, index) => {
-                                                return <p className={`bg-white text-black mt-20 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{onePost.post}</p>;
+                                                return (
+                                                    <p key={onePost._id} className={`bg-white text-black mt-20 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>
+                                                        {onePost.post}
+                                                    </p>
+                                                );
                                             })}
                                     </div>
                                 );
@@ -89,12 +95,12 @@ export default function Home() {
                     posts.map((post, index) => {
                         return (
                             <div style={{ gridArea: position[index] }} key={post._id}>
-                                <h1>hello</h1>
                                 <p className={`bg-white text-black mt-${mt[Math.round(Math.random() * 14)]} post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} ${rotate[Math.round(Math.random() * 17)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{post.post}</p>
                             </div>
                         );
                     })
                 )}
+                {console.log(posts)}
             </div>
             <div className="relative mt-20">
                 <Input setcount={setCount} />

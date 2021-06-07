@@ -33,7 +33,7 @@ const Input = ({ setcount }) => {
     return (
         <div className="absolute bottom-0 w-full mb-3">
             <div className="flex justify-center pt-20">
-                <div className=" lg:w-2/5 w-11/12 flex justify-center bg-gray-200 p-2 rounded-md">
+                <div className=" lg:w-3/5 w-11/12 flex justify-center bg-gray-200 p-2 rounded-md">
                     <input type="text" className="w-3/5" onChange={(e) => onChange(e)} value={post} maxLength="200" />
                     <button className="lg:px-8 px-3 lg:py-2 bg-blue-400 ml-5 rounded-md" onClick={postData}>
                         Send
