@@ -18,7 +18,7 @@ export default function Home() {
     const [rotate, setRotate] = useState(['rotate-1', 'rotate-2', 'rotate-3', 'rotate-6', 'rotate-12', 'rotate-12', '-rotate-12', '-rotate-12', '-rotate-6', '-rotate-3', '-rotate-2', '-rotate-1']);
     const [color, setColor] = useState(['#D50000', '#C51162', '#AA00FF', '#6200EA', '#304FFE', '#0091EA', '#00B8D4', '#00BFA5', '#00C853', '#64DD17', '#FFD600', '#FFAB00', '#FF6D00', '#DD2C00', '#6D4C41', '#757575', '#263238', '#78909C']);
 
-    const [chunked, setchunked] = useState([]);
+    const [chunked, setChunked] = useState([]);
     useEffect(async () => {
         setWidth(window.innerWidth);
         const background = Math.round(Math.random() * 17);
@@ -38,22 +38,29 @@ export default function Home() {
         shuffleArray(data);
         console.log(data);
         setPosts(data);
-        Array.from({ length: Math.ceil(posts.length / 4) }, (val, i) => {
-            console.log(chunked);
-            const slise = posts.slice(i * 4, i * 4 + 4);
-            setchunked((chunked) => chunked.concat(slise));
-        });
+        const result = new Array(Math.ceil(data.length / 4)).fill().map((_) => data.splice(0, 4));
+        setChunked(result);
+
+        // Array.from({ length: Math.ceil(data.length / 4) }, (val, i) => {
+        //     console.log(chunked);
+        //     const slice = data.slice(i * 4, i * 4 + 4);
+        //     setChunked(chunked.concat(data.slice(i * 4, i * 4 + 4)));
+        // });
     }, [count]);
+
     useEffect(() => {
         console.log(chunked);
     }, [chunked]);
     console.log(position);
+
     const setCount = (data) => {
         console.log(count);
         setcount(data);
         console.log(data);
     };
+
     console.log(mobilePosition);
+
     return (
         <div className="pb-10">
             <Head>
@@ -65,20 +72,24 @@ export default function Home() {
             <div className="pb-16 mt-16 w-full h-5/6 main overflow-y-scroll">
                 {width <= 600 ? (
                     <Carousel showThumbs={false} autoPlay={true} showArrows={false}>
-                        {chunked.map((post, index) => {
-                            return (
-                                <div key={post._id}>
-                                    {post.map((onePost, index) => {
-                                        return <p className={`bg-white text-black mt-20 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{onePost.post}</p>;
-                                    })}
-                                </div>
-                            );
-                        })}
+                        {chunked.length &&
+                            chunked.map((post, index) => {
+                                return (
+                                    <div key={post._id}>
+                                        {post.length &&
+                                            post.map((onePost, index) => {
+                                                return <p className={`bg-white text-black mt-20 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{onePost.post}</p>;
+                                            })}
+                                    </div>
+                                );
+                            })}
                     </Carousel>
                 ) : (
+                    posts.length &&
                     posts.map((post, index) => {
                         return (
                             <div style={{ gridArea: position[index] }} key={post._id}>
+                                <h1>hello</h1>
                                 <p className={`bg-white text-black mt-${mt[Math.round(Math.random() * 14)]} post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} ${rotate[Math.round(Math.random() * 17)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{post.post}</p>
                             </div>
                         );
