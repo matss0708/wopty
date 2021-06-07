@@ -6,39 +6,74 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 .post::before {
-  content: '';
-  left: 20px;
-  position: absolute;
-  top: 0px;
-  display: block;
-  background-color: rgb(255, 255, 255);
-  width: 12px;
-  height: 12px;
-  transform: translate(-50%, -50%) rotate(45deg);
+    content: '';
+    left: 20px;
+    position: absolute;
+    top: 0px;
+    display: block;
+    background-color: rgb(255, 255, 255);
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.main{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 150px 150px 150px 150px;
-  grid-template-areas: 
-    "a b c d"
-    "e f . g"
-    "h i j k"
-    "l m n o";
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 50px;
+    grid-template-areas:
+        'a b c d'
+        'e f . g'
+        'h i j k'
+        'l m n o';
 }
+
+@media only screen and (max-width: 1024px) {
+    .main {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            'a b c'
+            'd e f'
+            'g h i'
+            'j k l'
+            'm n o';
+    }
+    @media only screen and (max-width: 600px) {
+        .carousel-root {
+            width: 74%;
+        }
+        .main {
+            grid-template-columns: 1fr;
+            grid-template-areas: 'a';
+        }
+        .axis-vertical {
+            height: 600px !important;
+        }
+    }
+}
+/* 'e'
+                'f'
+                'g'
+                'h'
+                'i'
+                'j'
+                'k'
+                'l'
+                'm'
+                'n'
+                'o'; */
