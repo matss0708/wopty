@@ -12,9 +12,9 @@ module.exports = {
                 ZCOOL: ['ZCOOL'],
             },
             backgroundImage: (theme) => ({
-                bg1: "url('/1.jpeg')",
-                bg2: "url('/2.jpg')",
-                bg3: "url('/3.jpg')",
+                'bg1': "url('/1.jpeg')",
+                'bg2': "url('/2.jpg')",
+                'bg3': "url('/3.jpg')",
             }),
         },
     },
