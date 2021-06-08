@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
+import TextField from '@material-ui/core/TextField';
 
 const Input = ({ setcount }) => {
     const [post, setPost] = useState('');
@@ -34,7 +35,9 @@ const Input = ({ setcount }) => {
         <div className="absolute bottom-0 w-full mb-3">
             <div className="flex justify-center pt-20">
                 <div className=" lg:w-3/5 w-11/12 flex justify-center bg-gray-200 p-2 rounded-md">
-                    <input type="text" className="w-3/5" onChange={(e) => onChange(e)} value={post} maxLength="200" />
+                    {/* <input type="text" className="w-3/5" onChange={(e) => onChange(e)} value={post} maxLength="200" /> */}
+                    <TextField label="Post" variant="outlined" className="w-3/5" onChange={(e) => onChange(e)} value={post} />
+
                     <button className="lg:px-8 px-3 lg:py-2 bg-blue-400 ml-5 rounded-md" onClick={postData}>
                         Send
                     </button>

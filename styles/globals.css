@@ -53,6 +53,20 @@ a {
             'j k l'
             'm n o';
     }
+    @media only screen and (max-width: 860px) {
+        .main {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                'a b'
+                'c d'
+                'e f'
+                'g h'
+                'i j'
+                'k l'
+                'm n'
+                'o .';
+        }
+    }
     @media only screen and (max-width: 600px) {
         .carousel-root {
             width: 74%;

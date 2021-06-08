@@ -38,7 +38,7 @@ export default function Home() {
         shuffleArray(data);
         console.log(data);
         setPosts(data);
-        if (window.innerWidth <= 600) {
+        if (window.innerWidth <= 580) {
             const result = new Array(Math.ceil(data.length / 4)).fill().map((_) => data.splice(0, 4));
             setChunked(result);
         }
@@ -64,15 +64,15 @@ export default function Home() {
     console.log(mobilePosition);
 
     return (
-        <div className="pb-10">
+        <div className={`pb-10 bg-bg${Math.round(Math.random() * 3)} bg-blend-overlay bg-cover bg-opacity-40 bg-black`}>
             <Head>
                 <title>Wall Of Positivity</title>
                 <meta name="description" content="wall-of-positivity" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-            <div className="pb-16 mt-16 w-full h-5/6 main overflow-y-scroll">
-                {width <= 600 ? (
+            <div className="py-16 mt-16 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
+                {width <= 580 ? (
                     <Carousel showThumbs={false} autoPlay={true} showArrows={false}>
                         {chunked.length &&
                             chunked.map((post, index) => {
