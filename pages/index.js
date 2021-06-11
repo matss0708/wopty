@@ -64,7 +64,7 @@ export default function Home() {
     console.log(mobilePosition);
     //bg-bg${Math.round(Math.random() * 3)}
     return (
-        <div className={`pb-10 bg${Math.round(Math.random() * 2) + 1} bg-blend-overlay bg-cover bg-opacity-40 bg-black`}>
+        <div className={`pb-10 bg${Math.round(Math.random() * 2) + 1} bg-blend-overlay bg-cover bg-opacity-40 bg-black h-screen`}>
             <Head>
                 <title>Wall Of Positivity</title>
                 <meta name="description" content="wall-of-positivity" />
@@ -95,7 +95,7 @@ export default function Home() {
                     posts.map((post, index) => {
                         return (
                             <div style={{ gridArea: position[index] }} key={post._id}>
-                                <p className={`bg-white text-black mt-${mt[Math.round(Math.random() * 14)]} post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{post.post}</p>
+                                <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{post.post}</p>
                             </div>
                         );
                     })
