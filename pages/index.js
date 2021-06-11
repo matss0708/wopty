@@ -62,16 +62,16 @@ export default function Home() {
     };
 
     console.log(mobilePosition);
-
+    //bg-bg${Math.round(Math.random() * 3)}
     return (
-        <div className={`pb-10 bg-bg${Math.round(Math.random() * 3)} bg-blend-overlay bg-cover bg-opacity-40 bg-black`}>
+        <div className={`pb-10 bg${Math.round(Math.random() * 2) + 1} bg-blend-overlay bg-cover bg-opacity-40 bg-black`}>
             <Head>
                 <title>Wall Of Positivity</title>
                 <meta name="description" content="wall-of-positivity" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-            <div className="py-16 mt-16 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
+            <div className="pb-16 mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
                 {width <= 580 ? (
                     <Carousel showThumbs={false} autoPlay={true} showArrows={false}>
                         {chunked.length &&
@@ -95,7 +95,7 @@ export default function Home() {
                     posts.map((post, index) => {
                         return (
                             <div style={{ gridArea: position[index] }} key={post._id}>
-                                <p className={`bg-white text-black mt-${mt[Math.round(Math.random() * 14)]} post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} ${rotate[Math.round(Math.random() * 17)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{post.post}</p>
+                                <p className={`bg-white text-black mt-${mt[Math.round(Math.random() * 14)]} post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{post.post}</p>
                             </div>
                         );
                     })

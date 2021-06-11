@@ -38,9 +38,25 @@ a {
     gap: 50px;
     grid-template-areas:
         'a b c d'
-        'e f . g'
+        'e f o g'
         'h i j k'
-        'l m n o';
+        'l m n .';
+}
+
+.bg1 {
+    background-image: url('../public/1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg2 {
+    background-image: url('../public/2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg3 {
+    background-image: url('../public/3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 1024px) {
