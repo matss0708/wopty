@@ -58,7 +58,21 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.animate {
+    animation-name: example;
+    animation-duration: 2s;
+}
+@keyframes example {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 @media only screen and (max-width: 1024px) {
     .main {
         grid-template-columns: 1fr 1fr 1fr;

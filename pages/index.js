@@ -17,6 +17,7 @@ export default function Home() {
 
     const [rotate, setRotate] = useState(['rotate-1', 'rotate-2', 'rotate-3', 'rotate-6', 'rotate-12', 'rotate-12', '-rotate-12', '-rotate-12', '-rotate-6', '-rotate-3', '-rotate-2', '-rotate-1']);
     const [color, setColor] = useState(['#D50000', '#C51162', '#AA00FF', '#6200EA', '#304FFE', '#0091EA', '#00B8D4', '#00BFA5', '#00C853', '#64DD17', '#FFD600', '#FFAB00', '#FF6D00', '#DD2C00', '#6D4C41', '#757575', '#263238', '#78909C']);
+    const [image, setImage] = useState(1);
 
     const [chunked, setChunked] = useState([]);
     useEffect(async () => {
@@ -51,9 +52,13 @@ export default function Home() {
     }, [count]);
 
     useEffect(() => {
-        console.log(posts);
-    }, [posts]);
-    console.log(position);
+        const timer = setInterval(() => {
+            setImage((prevCount) => (prevCount === 3 ? 1 : prevCount + 1));
+        }, 15000);
+        return () => {
+            clearInterval(timer);
+        };
+    }, []); // Pass in e
 
     const setCount = (data) => {
         console.log(count);
@@ -64,46 +69,48 @@ export default function Home() {
     console.log(mobilePosition);
     //bg-bg${Math.round(Math.random() * 3)}
     return (
-        <div className={`pb-10 bg${Math.round(Math.random() * 2) + 1} bg-blend-overlay bg-cover bg-opacity-40 bg-black h-screen`}>
-            <Head>
-                <title>Wall Of Positivity</title>
-                <meta name="description" content="wall-of-positivity" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <Header />
-            <div className="pb-16 mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
-                {width <= 580 ? (
-                    <Carousel showThumbs={false} autoPlay={true} showArrows={false}>
-                        {chunked.length &&
-                            chunked.map((post, index) => {
-                                return (
-                                    <div key={index}>
-                                        {post.length &&
-                                            post.map((onePost, index) => {
-                                                return (
-                                                    <p key={onePost._id} className={`bg-white text-black mt-20 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>
-                                                        {onePost.post}
-                                                    </p>
-                                                );
-                                            })}
-                                    </div>
-                                );
-                            })}
-                    </Carousel>
-                ) : (
-                    posts.length &&
-                    posts.map((post, index) => {
-                        return (
-                            <div style={{ gridArea: position[index] }} key={post._id}>
-                                <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>{post.post}</p>
-                            </div>
-                        );
-                    })
-                )}
-                {console.log(posts)}
-            </div>
-            <div className="relative mt-20">
-                <Input setcount={setCount} />
+        <div className={`bg${image} animate`}>
+            <div className={`pb-10 bg-blend-overlay bg-cover bg-opacity-70 bg-black min-h-screen`}>
+                <Head>
+                    <title>Wall Of Positivity</title>
+                    <meta name="description" content="wall-of-positivity" />
+                    <link rel="icon" href="/favicon.ico" />
+                </Head>
+                <Header />
+                <div className="pb-16 mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
+                    {width <= 580 ? (
+                        <Carousel showThumbs={false} autoPlay={true} showArrows={false}>
+                            {chunked.length &&
+                                chunked.map((post, index) => {
+                                    return (
+                                        <div key={index}>
+                                            {post.length &&
+                                                post.map((onePost, index) => {
+                                                    return (
+                                                        <p key={onePost._id} className={`bg-white text-black mt-20 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>
+                                                            {onePost.post}
+                                                        </p>
+                                                    );
+                                                })}
+                                        </div>
+                                    );
+                                })}
+                        </Carousel>
+                    ) : (
+                        posts.length &&
+                        posts.map((post, index) => {
+                            return (
+                                <div style={{ gridArea: position[index] }} key={post._id}>
+                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
+                                </div>
+                            );
+                        })
+                    )}
+                    {console.log(posts)}
+                </div>
+                <div className="relative mt-20">
+                    <Input setcount={setCount} />
+                </div>
             </div>
         </div>
     );
