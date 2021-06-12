@@ -60,7 +60,8 @@ a {
 }
 .animate {
     animation-name: example;
-    animation-duration: 2s;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
 }
 @keyframes example {
     0% {

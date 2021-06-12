@@ -4,6 +4,7 @@ import Header from '../components/header';
 import Input from '../components/input';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import BackgroundSlider from 'react-background-slider';
 
 export default function Home() {
     const [count, setcount] = useState(0);
@@ -17,7 +18,6 @@ export default function Home() {
 
     const [rotate, setRotate] = useState(['rotate-1', 'rotate-2', 'rotate-3', 'rotate-6', 'rotate-12', 'rotate-12', '-rotate-12', '-rotate-12', '-rotate-6', '-rotate-3', '-rotate-2', '-rotate-1']);
     const [color, setColor] = useState(['#D50000', '#C51162', '#AA00FF', '#6200EA', '#304FFE', '#0091EA', '#00B8D4', '#00BFA5', '#00C853', '#64DD17', '#FFD600', '#FFAB00', '#FF6D00', '#DD2C00', '#6D4C41', '#757575', '#263238', '#78909C']);
-    const [image, setImage] = useState(1);
 
     const [chunked, setChunked] = useState([]);
     useEffect(async () => {
@@ -51,15 +51,6 @@ export default function Home() {
         // });
     }, [count]);
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setImage((prevCount) => (prevCount === 3 ? 1 : prevCount + 1));
-        }, 15000);
-        return () => {
-            clearInterval(timer);
-        };
-    }, []); // Pass in e
-
     const setCount = (data) => {
         console.log(count);
         setcount(data);
@@ -69,15 +60,16 @@ export default function Home() {
     console.log(mobilePosition);
     //bg-bg${Math.round(Math.random() * 3)}
     return (
-        <div className={`bg${image} animate`}>
-            <div className={`pb-10 bg-blend-overlay bg-cover bg-opacity-70 bg-black min-h-screen`}>
+        <div className="relative min-h-screen">
+            <BackgroundSlider images={['1.jpeg', '2.jpg', '3.jpg']} duration={10} transition={2} />
+            <div className={`pb-10  bg-blend-overlay bg-cover bg-opacity-60 bg-black min-h-screen`}>
                 <Head>
                     <title>Wall Of Positivity</title>
                     <meta name="description" content="wall-of-positivity" />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Header />
-                <div className="pb-16 mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
+                <div className="pb-28 mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
                     {width <= 580 ? (
                         <Carousel showThumbs={false} autoPlay={true} showArrows={false}>
                             {chunked.length &&
@@ -108,7 +100,7 @@ export default function Home() {
                     )}
                     {console.log(posts)}
                 </div>
-                <div className="relative mt-20">
+                <div className="pt-0 absolute bottom-0 w-full">
                     <Input setcount={setCount} />
                 </div>
             </div>
