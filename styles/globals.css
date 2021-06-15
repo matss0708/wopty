@@ -99,11 +99,8 @@ a {
         }
     }
     @media only screen and (max-width: 600px) {
-        .carousel-root {
-            width: 74%;
-        }
         .main {
-            grid-template-columns: 1fr;
+            grid-template-columns: 98%;
             grid-template-areas: 'a';
         }
         .axis-vertical {
