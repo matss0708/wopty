@@ -10,7 +10,7 @@ export default function Home() {
     const [count, setcount] = useState(0);
     const [width, setWidth] = useState(0);
     const [posts, setPosts] = useState([]);
-    const [fonts, setFonts] = useState(['Dancing', 'Limelight', 'Lobster', 'Noto', 'Roboto', 'ZCOOL']);
+    const [fonts, setFonts] = useState(['Dancing', 'Lobster', 'Noto', 'Roboto', 'ZCOOL']);
     const [fontWeight, setfontWeight] = useState(['base', 'sm', 'lg', 'xl', 'xl2', 'xl3']);
     const [mt, setMt] = useState([1, 20, 4, 4, 8, 6, 7, 2, 9, 10, 12, 14, 16, 20]);
     const [position, setposition] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']);
@@ -69,7 +69,7 @@ export default function Home() {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Header />
-                <div className="pb-28 mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
+                <div className="mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible ">
                     {width <= 580 ? (
                         <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
                             {chunked.length &&
@@ -79,7 +79,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p key={onePost._id} className={`bg-white text-black my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} ${fontWeight[Math.round(Math.random() * 5)]}`}>
+                                                        <p key={onePost._id} className={`bg-white text-black my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 4)]} ${fontWeight[Math.round(Math.random() * 5)]}`}>
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -93,7 +93,7 @@ export default function Home() {
                         posts.map((post, index) => {
                             return (
                                 <div style={{ gridArea: position[index] }} key={post._id}>
-                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} ${fontWeight[Math.round(Math.random() * 5)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
+                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} ${fontWeight[Math.round(Math.random() * 4)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
                                 </div>
                                 // font-${fonts[Math.round(Math.random() * 5)]}
                             );
@@ -101,7 +101,7 @@ export default function Home() {
                     )}
                     {console.log(posts)}
                 </div>
-                <div className="pt-0 absolute bottom-0 w-full">
+                <div className="pt-5 absolute bottom-0 w-full">
                     <Input setcount={setCount} />
                 </div>
             </div>
