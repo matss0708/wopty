@@ -11,7 +11,7 @@ export default function Home() {
     const [width, setWidth] = useState(0);
     const [posts, setPosts] = useState([]);
     const [fonts, setFonts] = useState(['Dancing', 'Limelight', 'Lobster', 'Noto', 'Roboto', 'ZCOOL']);
-    const [fontWeight, setfontWeight] = useState(['base', 'sm', 'lg', 'xl', '2xl', '3xl']);
+    const [fontWeight, setfontWeight] = useState(['base', 'sm', 'lg', 'xl', 'xl2', 'xl3']);
     const [mt, setMt] = useState([1, 20, 4, 4, 8, 6, 7, 2, 9, 10, 12, 14, 16, 20]);
     const [position, setposition] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']);
     const [mobilePosition, setMobilePosition] = useState([]);
@@ -79,7 +79,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p key={onePost._id} className={`bg-white text-black my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>
+                                                        <p key={onePost._id} className={`bg-white text-black my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} ${fontWeight[Math.round(Math.random() * 5)]}`}>
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -93,7 +93,7 @@ export default function Home() {
                         posts.map((post, index) => {
                             return (
                                 <div style={{ gridArea: position[index] }} key={post._id}>
-                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
+                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} ${fontWeight[Math.round(Math.random() * 5)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
                                 </div>
                                 // font-${fonts[Math.round(Math.random() * 5)]}
                             );

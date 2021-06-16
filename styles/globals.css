@@ -40,6 +40,24 @@ a {
 .ZCOOL {
     font-family: 'ZCOOL';
 }
+.base {
+    font-size: 14px;
+}
+.sm {
+    font-size: 17px;
+}
+.lg {
+    font-size: 20px;
+}
+.xl {
+    font-size: 35px;
+}
+.xl2 {
+    font-size: 25px;
+}
+.xl3 {
+    font-size: 30px;
+}
 .post::before {
     content: '';
     left: 20px;
