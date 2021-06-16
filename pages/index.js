@@ -71,7 +71,7 @@ export default function Home() {
                 <Header />
                 <div className="pb-28 mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible">
                     {width <= 580 ? (
-                        <Carousel showThumbs={false} autoPlay={true} showArrows={false}>
+                        <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
                             {chunked.length &&
                                 chunked.map((post, index) => {
                                     return (
@@ -79,7 +79,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p key={onePost._id} className={`bg-white text-black mt-20 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>
+                                                        <p key={onePost._id} className={`bg-white text-black my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -93,8 +93,9 @@ export default function Home() {
                         posts.map((post, index) => {
                             return (
                                 <div style={{ gridArea: position[index] }} key={post._id}>
-                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
+                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-Limelight text-${fontWeight[Math.round(Math.random() * 5)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
                                 </div>
+                                // font-${fonts[Math.round(Math.random() * 5)]}
                             );
                         })
                     )}
