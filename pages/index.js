@@ -79,7 +79,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p key={onePost._id} className={`bg-white text-black my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>
+                                                        <p key={onePost._id} className={`bg-white text-black my-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]}`}>
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -93,7 +93,7 @@ export default function Home() {
                         posts.map((post, index) => {
                             return (
                                 <div style={{ gridArea: position[index] }} key={post._id}>
-                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md font-Limelight text-${fontWeight[Math.round(Math.random() * 5)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
+                                    <p className={`bg-white text-black mt-5 post max-w-20 transform min-h-8 mx-8 bg-white p-3 rounded-md ${fonts[Math.round(Math.random() * 5)]} text-${fontWeight[Math.round(Math.random() * 5)]} transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`}>{post.post}</p>
                                 </div>
                                 // font-${fonts[Math.round(Math.random() * 5)]}
                             );

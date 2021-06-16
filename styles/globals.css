@@ -19,6 +19,27 @@ a {
 * {
     box-sizing: border-box;
 }
+.Dancing {
+    font-family: 'Dancing';
+}
+.Inconsolata {
+    font-family: 'Inconsolata';
+}
+.Limelight {
+    font-family: 'Limelight';
+}
+.Lobster {
+    font-family: 'Lobster';
+}
+.Noto {
+    font-family: 'Noto';
+}
+.Roboto {
+    font-family: 'Roboto';
+}
+.ZCOOL {
+    font-family: 'ZCOOL';
+}
 .post::before {
     content: '';
     left: 20px;
