@@ -62,14 +62,14 @@ export default function Home() {
     return (
         <div className="relative min-h-screen">
             <BackgroundSlider images={['1.jpeg', '2.jpg', '3.jpg']} duration={10} transition={2} />
-            <div className={`pb-10 overflow-scroll bg-blend-overlay bg-cover bg-opacity-60 bg-black min-h-screen`}>
+            <div className={`pb-10  bg-blend-overlay bg-cover bg-opacity-60 bg-black min-h-screen`}>
                 <Head>
                     <title>Wall Of Positivity</title>
                     <meta name="description" content="wall-of-positivity" />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Header />
-                <div className="mt-1 w-full h-2/4 main overflow-y-scroll lg:overflow-y-visible min-h-0">
+                <div className="mt-1 w-full h-5/6 main overflow-y-scroll md:overflow-y-visible ">
                     {width <= 768 ? (
                         <Carousel showThumbs={false} autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
                             {chunked.length &&
@@ -101,9 +101,9 @@ export default function Home() {
                     )}
                     {console.log(posts)}
                 </div>
-            </div>
-            <div className="pt-5 absolute bottom-0 w-full">
-                <Input setcount={setCount} />
+                <div className="pt-5 absolute bottom-0 w-full">
+                    <Input setcount={setCount} />
+                </div>
             </div>
         </div>
     );
