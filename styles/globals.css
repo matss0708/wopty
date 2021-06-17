@@ -50,7 +50,7 @@ a {
     font-size: 20px;
 }
 .xl {
-    font-size: 10px;
+    font-size: 24px;
 }
 .xl2 {
     font-size: 24px;
@@ -102,6 +102,7 @@ a {
     animation-duration: 3s;
     animation-timing-function: ease-in-out;
 }
+
 @keyframes example {
     0% {
         transform: scale(1);
