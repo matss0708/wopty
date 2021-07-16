@@ -1,69 +1,145 @@
-import Head from 'next/head'
-import { useEffect, useState } from 'react'
-import Header from '../components/header'
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import Header from '../components/header';
 import Input from '../components/input';
+import Popups from '../components/popup';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import BackgroundSlider from 'react-background-slider';
 
 export default function Home() {
-  const [count, setcount] = useState(0)
-  const [posts, setPosts] = useState([])
-  const [fonts, setFonts] = useState(['Dancing','Limelight','Lobster','Noto','Roboto','ZCOOL'])
-  const [fontWeight, setfontWeight] = useState(['base','sm','lg','xl','2xl','3xl'])
-  const [mt, setMt] = useState([1,20,4,4,8,6,7,2,9,10,12,14,16,20])
-  const [position, setposition] = useState(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o'])
+    const [popup, setPopup] = useState(false);
+    const [postData, setPostData] = useState(0);
+    const [count, setcount] = useState(0);
+    const [width, setWidth] = useState(0);
+    const [posts, setPosts] = useState([]);
+    const [fonts, setFonts] = useState(['Dancing', 'Lobster', 'Noto', 'Roboto', 'ZCOOL']);
+    const [fontWeight, setfontWeight] = useState(['base', 'sm', 'lg', 'xl', 'xl2']);
+    const [mt, setMt] = useState([1, 20, 4, 4, 8, 6, 7, 2, 9, 10, 12, 14, 16]);
+    const [position, setposition] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']);
+    const [mobilePosition, setMobilePosition] = useState([]);
 
-  const [rotate, setRotate] = useState(['rotate-1','rotate-2','rotate-3','rotate-6','rotate-12','rotate-12','-rotate-12','-rotate-12','-rotate-6','-rotate-3','-rotate-2','-rotate-1'])
-  const [color, setColor] = useState(['#D50000','#C51162','#AA00FF','#6200EA','#304FFE','#0091EA','#00B8D4','#00BFA5','#00C853','#64DD17','#FFD600','#FFAB00','#FF6D00','#DD2C00','#6D4C41','#757575','#263238','#78909C'])
-  
-  
-  
-  useEffect(async() => {
-    const background=Math.round(Math.random()*17);
-    function shuffleArray(array) {
-      for (var i = array.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var temp = array[i];
-          array[i] = array[j];
-          array[j] = temp;
-      }
+    const [rotate, setRotate] = useState(['rotate-1', 'rotate-2', 'rotate-3', 'rotate-6', 'rotate-12', 'rotate-12', '-rotate-12', '-rotate-12', '-rotate-6', '-rotate-3', '-rotate-2', '-rotate-1']);
+    const [color, setColor] = useState(['red', 'green', 'blue', 'purple', 'black']);
+
+    const [chunked, setChunked] = useState([]);
+    useEffect(async () => {
+        setWidth(window.innerWidth);
+        const background = Math.round(Math.random() * 17);
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        shuffleArray(position);
+
+        // document.body.style.backgroundColor = color[background];
+        // if(document.readyState){
+        //     document.getElementById('message').style.color = color[background];
+        // }
+        const res = await fetch(`/api/post`);
+        const data = await res.json();
+        shuffleArray(data);
+        console.log(data);
+
+        setPosts(data.slice(0,12));
+        if (window.innerWidth <= 768) {
+            const result = new Array(Math.ceil(data.length / 4)).fill().map((_) => data.splice(0, 4));
+            setChunked(result);
+        }
+
+        // Array.from({ length: Math.ceil(data.length / 4) }, (val, i) => {
+        //     console.log(chunked);
+        //     const slice = data.slice(i * 4, i * 4 + 4);
+        //     setChunked(chunked.concat(data.slice(i * 4, i * 4 + 4)));
+        // });
+    }, [count]);
+
+    const setCount = (data) => {
+        console.log(count);
+        setcount(data);
+        console.log(data);
+    };
+
+    console.log(mobilePosition);
+    //bg-bg${Math.round(Math.random() * 3)}
+    const showPopup=(data)=>{
+        setPostData(data);
+        setPopup(true);
     }
-      console.log(position);
-      shuffleArray(position)
-      console.log(position);
-
-    document.body.style.backgroundColor = color[background];
-    const res = await fetch(`/api/post`);
-    const data = await res.json();
-    console.log(data);
-    setPosts(data);
-  }, [count])
-console.log(position);
-  const setCount =(data)=>{
-    console.log(count);
-    setcount(data)
-    console.log(data);
-  }
-  return (
-    <div className='relative'>
-      <Head>
-        <title>Wall Of Positivity</title>
-        <meta name="description" content="wall-of-positivity" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
-      <div className="pb-16 w-full h-5/6 main">
-
-      {posts.map((post,index)=> {
-        const left= (((Math.random() * (window.innerWidth))).toFixed()).toString()+'px'
-        const top=((Math.random() * (window.innerHeight - ((Math.random()*100) + 50).toFixed())).toFixed()).toString()+'px'
-        const width=((Math.random()*300) + 200).toFixed().toString() +'px'
-        return <div style={{gridArea:position[index]}} key={post._id}>
-                   <p className={`bg-white text-black mt-${mt[Math.round(Math.random()*14)]} post transform min-h-8 mx-8 bg-white p-3 rounded-md font-${fonts[Math.round(Math.random()*5)]} ${rotate[Math.round(Math.random()*17)]} text-${fontWeight[Math.round(Math.random()*5)]}`}>{post.post}</p>
+    const closePopup=()=>{
+        setPopup(false);
+    }
+//sdsd  dsa
+    return (
+        <div className="relative">
+            <BackgroundSlider images={['1.jpeg', '2.jpg', '3.jpg']} duration={10} transition={2} />
+            <div className={` bg-blend-overlay bg-cover bg-opacity-60 bg-black min-h-screen`}>
+                <Head>
+                    <title>Wall Of Positivity</title>
+                    <meta name="description" content="wall-of-positivity" />
+                    <link rel="icon" href="/favicon.png" />
+                </Head>
+                <Header />
+                {popup?<Popups closePopup={closePopup}>{postData}</Popups>:null}
+                <div className="pt-24 xl:pt-32 w-full px-0 md:px-8 h-3/4 main overflow-y-scroll md:overflow-y-visible ">
+                    {width <= 768 ? (
+                        <Carousel showThumbs={false} autoPlay={true} interval={6000} showArrows={false} infiniteLoop={true} showStatus={false}>
+                            {chunked.length &&
+                                chunked.map((post, index) => {
+                                    return (
+                                        <div key={index}>
+                                            {post.length &&
+                                                post.map((onePost, index) => {
+                                                    return (
+                                                        <p  key={onePost._id} className={`opacity-60 my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post text-overflow max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[4]}`} onClick={()=>showPopup(onePost.post)} >
+                                                            {onePost.post}
+                                                        </p>
+                                                    );
+                                                })}
+                                        </div>
+                                    );
+                                })}
+                        </Carousel>
+                    ) : (
+                        
+                        posts.map((post, index) => {
+                            return (
+                                <div style={{ gridArea: position[index], background:"white" }} className={`opacity-60 flex items-center justify-center post transform rounded-md transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`} key={post._id}>
+                                    <p className={`opacity-100 bg-white ${color[Math.round(Math.random() * 4)]}  max-w-20  min-h-8 bg-white p-3 rounded-md text-center ${fonts[1]} ${fontWeight[4]}  message`}>{post.post}</p>
+                                </div>
+                                // font-${fonts[Math.round(Math.random() * 5)]}
+                            );
+                        })
+                    )}
+                    {console.log(posts)}
                 </div>
-      })
-}
-      </div>
-      <Input setcount={setCount} />
-    </div>
-  )
+                <div className="pb-2 absolute lg:flex flex-col bottom-0 md:bottom-0  w-full">
+                    <Input setcount={setCount} />
+                    <div className="flex flex-col2 absolute lg:right-32 right-10 lg:bottom-8 bottom-24 justify-between mt-3 lg:mt-5">
+                    <a href="https://www.facebook.com/wopty.wall.of.positivity" className="ml-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                        </svg>
+                    </a>
+                  
+                    <a href="https://www.instagram.com/wall_of_positivity/">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <rect x="4" y="4" width="16" height="16" rx="4" />
+                            <circle cx="12" cy="12" r="3" />
+                            <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+                        </svg>
+                    </a>
+                  
+            </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 //backgroundColor: color[Math.round(Math.random()*17)],
