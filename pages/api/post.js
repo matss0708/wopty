@@ -7,10 +7,10 @@ const post= async (req, res) => {
         
         if(req.body.post){
 
-            if(posts.length===15){
-                const id=posts[0]._id
-                await Post.deleteOne({_id:id})
-            }
+            // if(posts.length===15){
+            //     const id=posts[0]._id
+            //     await Post.deleteOne({_id:id})
+            // }
 
             var post = new Post({
                 post: req.body.post
@@ -19,7 +19,8 @@ const post= async (req, res) => {
         }
         res.status(200).send('post saved')
       } else {
-          const data= await Post.find().limit(15)
+          const data= await Post.find().sort({addedTime: -1}).limit(15)
+          console.log(data)
           res.status(200).send(data)
       }
   }
