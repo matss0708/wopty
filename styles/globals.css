@@ -107,16 +107,16 @@ a {
     color: red;
 }
 .green{
-    color: green;
+    color: rgb(0, 214, 0);
 }
 .blue{
-    color: blue;
+    color: rgb(0, 131, 253);
 }
 .purple{
-    color: purple;
+    color: rgb(241, 26, 241);
 }
 .black{
-    color: black;
+    color: rgb(255, 231, 17);
 }
 .input-back{
     background-color: rgba(255, 255, 255, 0.404);
