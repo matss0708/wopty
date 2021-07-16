@@ -79,8 +79,8 @@ export default function Home() {
             <BackgroundSlider images={['1.jpeg', '2.jpg', '3.jpg']} duration={10} transition={2} />
             <div className={` bg-blend-overlay bg-cover bg-opacity-60 bg-black min-h-screen`}>
                 <Head>
-                    <title>Wopty Wall Of Positivity</title>
-                    <meta name="description" content="The Wopty is a digital platform to inspire and be inspired by positive messages. Join the movement. Spread positivity for yourself and others. Contribution and usage are completely free and anonymous" />
+                    <title>WOPTY Wall Of Positivity</title>
+                    <meta name="description" content="The WOPTY is a digital platform to inspire and be inspired by positive messages. Join the movement. Spread positivity for yourself and others. Contribution and usage are completely free and anonymous" />
                     <link rel="icon" href="/favicon.png" />
                 </Head>
                 <Header />
