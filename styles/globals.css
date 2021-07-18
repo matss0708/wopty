@@ -84,17 +84,17 @@ a {
 }
 
 .bg1 {
-    background-image: url('../public/1.jpeg');
+    background-image: url('../public/wopty1.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .bg2 {
-    background-image: url('../public/2.jpg');
+    background-image: url('../public/wopty2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .bg3 {
-    background-image: url('../public/3.jpg');
+    background-image: url('../public/wopty3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
