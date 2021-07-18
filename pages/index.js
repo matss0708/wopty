@@ -42,10 +42,10 @@ export default function Home() {
         // }
         const res = await fetch(`/api/post`);
         const data = await res.json();
-        shuffleArray(data);
         console.log(data);
-
+        
         setPosts(data.slice(0,12));
+        shuffleArray(data);
         if (window.innerWidth <= 768) {
             const result = new Array(Math.ceil(data.length / 4)).fill().map((_) => data.splice(0, 4));
             setChunked(result);
