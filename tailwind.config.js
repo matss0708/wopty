@@ -12,9 +12,9 @@ module.exports = {
                 ZCOOL: ['ZCOOL'],
             },
             backgroundImage: (theme) => ({
-                bg1: "url('/1.jpeg')",
-                bg2: "url('/2.jpg')",
-                bg3: "url('/3.jpg')",
+                bg1: "url('/wopty1.jpeg')",
+                bg2: "url('/wopty2.jpg')",
+                bg3: "url('/wopty3.jpg')",
             }),
             boxShadow: {
                 lg: '2px 2px 5px 3px rgb(120, 120, 120)',
