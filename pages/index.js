@@ -13,7 +13,7 @@ export default function Home() {
     const [count, setcount] = useState(0);
     const [width, setWidth] = useState(0);
     const [posts, setPosts] = useState([]);
-    const [fonts, setFonts] = useState(['Dancing', 'Posterama', 'Noto', 'Roboto', 'ZCOOL']);
+    const [fonts, setFonts] = useState(['Dancing', 'Lobster', 'Noto', 'Roboto', 'ZCOOL']);
     const [fontWeight, setfontWeight] = useState(['base', 'sm', 'lg', 'xl', 'xl2']);
     const [mt, setMt] = useState([1, 20, 4, 4, 8, 6, 7, 2, 9, 10, 12, 14, 16]);
     const [position, setposition] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']);
@@ -95,7 +95,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p  key={onePost._id} className={`opacity-60 my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post text-overflow max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[5]}`} onClick={()=>showPopup(onePost.post)} >
+                                                        <p  key={onePost._id} className={`opacity-60 my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post text-overflow max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[4]}`} onClick={()=>showPopup(onePost.post)} >
                                                             {onePost.post}
                                                         </p>
                                                     );
@@ -109,7 +109,7 @@ export default function Home() {
                         posts.map((post, index) => {
                             return (
                                 <div style={{ gridArea: position[index], background:"white" }} className={`opacity-60 flex items-center justify-center post transform rounded-md transition duration-500 ease-in-out hover:scale-110 shadow-lg hover:shadow-none`} key={post._id}>
-                                    <p className={`opacity-100 bg-white ${color[Math.round(Math.random() * 4)]}  max-w-20  min-h-8 bg-white p-3 rounded-md text-center ${fonts[1]} ${fontWeight[5]}  message`}>{post.post}</p>
+                                    <p className={`opacity-100 bg-white ${color[Math.round(Math.random() * 4)]}  max-w-20  min-h-8 bg-white p-3 rounded-md text-center ${fonts[1]} ${fontWeight[4]}  message`}>{post.post}</p>
                                 </div>
                                 // font-${fonts[Math.round(Math.random() * 5)]}
                             );

@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inconsolata:wght@500&family=Limelight&family=Lobster&family=Noto+Sans+JP&family=Roboto+Mono:ital,wght@1,200&family=ZCOOL+KuaiLe&display=swap');
-@import url('https://db.onlinewebfonts.com/c/c545a36000d0fe5eb6dd44b3cabda9cf?family=Posterama');
 
 html,
 body {
@@ -23,8 +22,8 @@ a {
 .Dancing {
     font-family: 'Dancing';
 }
-.Posterama {
-    font-family: 'Posterama';
+.Inconsolata {
+    font-family: 'Inconsolata';
 }
 .Limelight {
     font-family: 'Limelight';
@@ -105,19 +104,19 @@ a {
     animation-timing-function: ease-in-out;
 }
 .red{
-    color: #000000
+    color: #ff2222
 }
 .green{
-    color: rgb(0, 0, 0);
+    color: rgb(0, 177, 0);
 }
 .blue{
-    color: rgb(0, 0, 0);
+    color: rgb(0, 119, 255);
 }
 .purple{
-    color: rgb(0, 0, 0);
+    color: rgb(197, 0, 197);
 }
 .black{
-    color: rgb(0, 0, 0);
+    color: rgb(184, 165, 0);
 }
 .input-back{
     background-color: rgba(255, 255, 255, 0.404);
