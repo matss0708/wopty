@@ -13,7 +13,7 @@ export default function Home() {
     const [count, setcount] = useState(0);
     const [width, setWidth] = useState(0);
     const [posts, setPosts] = useState([]);
-    const [fonts, setFonts] = useState(['Dancing', 'Lobster', 'Noto', 'Roboto', 'ZCOOL']);
+    const [fonts, setFonts] = useState(['Dancing', 'Posterama', 'Noto', 'Roboto', 'ZCOOL']);
     const [fontWeight, setfontWeight] = useState(['base', 'sm', 'lg', 'xl', 'xl2']);
     const [mt, setMt] = useState([1, 20, 4, 4, 8, 6, 7, 2, 9, 10, 12, 14, 16]);
     const [position, setposition] = useState(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k']);
