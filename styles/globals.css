@@ -105,19 +105,19 @@ a {
     animation-timing-function: ease-in-out;
 }
 .red{
-    color: #ff2222
+    color: #000000
 }
 .green{
-    color: rgb(0, 177, 0);
+    color: rgb(0, 0, 0);
 }
 .blue{
-    color: rgb(0, 119, 255);
+    color: rgb(0, 0, 0);
 }
 .purple{
-    color: rgb(197, 0, 197);
+    color: rgb(0, 0, 0);
 }
 .black{
-    color: rgb(184, 165, 0);
+    color: rgb(0, 0, 0);
 }
 .input-back{
     background-color: rgba(255, 255, 255, 0.404);
