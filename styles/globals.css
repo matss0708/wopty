@@ -23,9 +23,18 @@ a {
 }
 .Dancing {
 	font-family: "Dancing";
+<<<<<<< HEAD
 }
 .Posterama {
 	font-family: "Posterama";
+=======
+}
+.Posterama {
+	font-family: "Posterama";
+}
+.Inconsolata {
+	font-family: "Inconsolata";
+>>>>>>> Font-Fix
 }
 .Limelight {
 	font-family: "Limelight";
@@ -106,6 +115,7 @@ a {
 	animation-timing-function: ease-in-out;
 }
 .red {
+<<<<<<< HEAD
 	color: #ff2222;
 }
 .green {
@@ -119,6 +129,21 @@ a {
 }
 .black {
 	color: rgb(184, 165, 0);
+=======
+	color: #000000;
+}
+.green {
+	color: rgb(0, 0, 0);
+}
+.blue {
+	color: rgb(0, 0, 0);
+}
+.purple {
+	color: rgb(0, 0, 0);
+}
+.black {
+	color: rgb(0, 0, 0);
+>>>>>>> Font-Fix
 }
 .input-back {
 	background-color: rgba(255, 255, 255, 0.404);
