@@ -5,7 +5,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 Dancing: ['Dancing'],
-                Limelight: ['Limelight'],
+                Posterama: ['Posterama'],
                 Lobster: ['Lobster'],
                 Noto: ['Noto'],
                 Roboto: ['Roboto'],
