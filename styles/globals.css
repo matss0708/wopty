@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inconsolata:wght@500&family=Limelight&family=Lobster&family=Noto+Sans+JP&family=Roboto+Mono:ital,wght@1,200&family=ZCOOL+KuaiLe&display=swap');
+@import url('https://db.onlinewebfonts.com/c/495fb880bb34283e9fecaafed5263cf8?family=PosteramaText-Bold');
 
 html,
 body {
@@ -22,8 +23,8 @@ a {
 .Dancing {
     font-family: 'Dancing';
 }
-.Inconsolata {
-    font-family: 'Inconsolata';
+.Posterama {
+    font-family: 'Posterama';
 }
 .Limelight {
     font-family: 'Limelight';
