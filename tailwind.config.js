@@ -6,7 +6,6 @@ module.exports = {
             fontFamily: {
                 Dancing: ['Dancing'],
                 Posterama: ['Posterama'],
-                Lobster: ['Lobster'],
                 Noto: ['Noto'],
                 Roboto: ['Roboto'],
                 ZCOOL: ['ZCOOL'],
