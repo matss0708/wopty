@@ -2,149 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inconsolata:wght@500&family=Limelight&family=Lobster&family=Noto+Sans+JP&family=Roboto+Mono:ital,wght@1,200&family=ZCOOL+KuaiLe&display=swap");
-@import url("https://db.onlinewebfonts.com/c/c545a36000d0fe5eb6dd44b3cabda9cf?family=Posterama");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inconsolata:wght@500&family=Limelight&family=Lobster&family=Noto+Sans+JP&family=Roboto+Mono:ital,wght@1,200&family=ZCOOL+KuaiLe&display=swap');
 
 html,
 body {
-	padding: 0;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 .Dancing {
-	font-family: "Dancing";
+    font-family: 'Dancing';
 }
-.Posterama {
-    font-family: 'Posterama';
+.Inconsolata {
+    font-family: 'Inconsolata';
 }
 .Limelight {
-	font-family: "Limelight";
+    font-family: 'Limelight';
 }
 .Lobster {
-	font-family: "Lobster";
+    font-family: 'Lobster';
 }
 .Noto {
-	font-family: "Noto";
+    font-family: 'Noto';
 }
 .Roboto {
-	font-family: "Roboto";
+    font-family: 'Roboto';
 }
 .ZCOOL {
-	font-family: "ZCOOL";
+    font-family: 'ZCOOL';
 }
 .base {
-	font-size: 14px;
+    font-size: 14px;
 }
 .sm {
-	font-size: 17px;
+    font-size: 17px;
 }
 .lg {
-	font-size: 20px;
+    font-size: 20px;
 }
 .xl {
-	font-size: 24px;
+    font-size: 24px;
 }
 .xl2 {
-	font-size: 24px;
+    font-size: 24px;
 }
-.text-overflow {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+.text-overflow{
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .post::before {
-	content: "";
-	left: 20px;
-	position: absolute;
-	top: 0px;
-	display: block;
-	background-color: rgb(255, 255, 255);
-	width: 12px;
-	height: 12px;
-	transform: translate(-50%, -50%) rotate(45deg);
+    content: '';
+    left: 20px;
+    position: absolute;
+    top: 0px;
+    display: block;
+    background-color: rgb(255, 255, 255);
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .main {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: repeat(3, 210px);
-	gap: 30px;
-	grid-template-areas:
-		"a b c d"
-		"e f o g"
-		"h i j k";
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 210px);;
+    gap: 30px;
+    grid-template-areas:
+        'a b c d'
+        'e f o g'
+        'h i j k';
 }
 
 .bg1 {
-	background-image: url("../public/wopty1.jpeg");
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-image: url('../public/wopty1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .bg2 {
-	background-image: url("../public/wopty2.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-image: url('../public/wopty2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .bg3 {
-	background-image: url("../public/wopty3.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-image: url('../public/wopty3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .animate {
-	animation-name: example;
-	animation-duration: 3s;
-	animation-timing-function: ease-in-out;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
 }
-.red {
-	color: #ff2222;
+.red{
+    color: #ff2222
 }
-.green {
-	color: rgb(0, 177, 0);
+.green{
+    color: rgb(0, 177, 0);
 }
-.blue {
-	color: rgb(0, 119, 255);
+.blue{
+    color: rgb(0, 119, 255);
 }
-.purple {
-	color: rgb(197, 0, 197);
+.purple{
+    color: rgb(197, 0, 197);
 }
-.black {
-	color: rgb(184, 165, 0);
+.black{
+    color: rgb(184, 165, 0);
 }
-.input-back {
-	background-color: rgba(255, 255, 255, 0.404);
+.input-back{
+    background-color: rgba(255, 255, 255, 0.404);
 }
 @keyframes example {
-	0% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.4);
-	}
-	100% {
-		transform: scale(1);
-	}
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 @media only screen and (max-width: 1024px) {
-	.main {
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-areas:
-			"a b c"
-			"d e f"
-			"g h i"
-			"j k l"
-			"m n o";
-	}
-	/* @media only screen and (max-width: 860px) {
+    .main {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            'a b c'
+            'd e f'
+            'g h i'
+            'j k l'
+            'm n o';
+    }
+    /* @media only screen and (max-width: 860px) {
         .main {
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
@@ -160,15 +158,15 @@ a {
     } */
 }
 @media only screen and (max-width: 768px) {
-	.main {
-		grid-template-columns: 98%;
-		grid-template-rows: 75%;
-		grid-template-areas: "a";
-		overflow: scroll;
-	}
-	.axis-vertical {
-		height: 600px !important;
-	}
+    .main {
+        grid-template-columns: 98%;
+        grid-template-rows: 75%;
+        grid-template-areas: 'a';
+        overflow: scroll;
+    }
+    .axis-vertical {
+        height: 600px !important;
+    }
 }
 /* 'e'
                 'f'
