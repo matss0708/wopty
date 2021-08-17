@@ -95,7 +95,7 @@ export default function Home() {
                                             {post.length &&
                                                 post.map((onePost, index) => {
                                                     return (
-                                                        <p  key={onePost._id} className={`opacity-60 my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post text-overflow max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[1]} ${fontWeight[4]}`} onClick={()=>showPopup(onePost.post)} >
+                                                        <p  key={onePost._id} className={`opacity-60 my-8 mx-5 ml-8 bg-white ${color[Math.round(Math.random() * 4)]} post text-overflow max-w-20 transform min-h-8 bg-white p-3 rounded-md ${fonts[2]} ${fontWeight[4]}`} onClick={()=>showPopup(onePost.post)} >
                                                             {onePost.post}
                                                         </p>
                                                     );
